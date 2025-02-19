@@ -5,15 +5,20 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const session = require("express-session");
 const bcrypt = require("bcryptjs");
+const { MongoClient, ServerApiVersion } = require("mongodb");
 const { register } = require("module");
 
 const app = express();
-const port = 3000;
+const port = process.env.port || 3000;
 
  //middleware to serve static data
  app.use(express.static(path.join(__dirname, "public")));
 
  let message = "Wouldn't you like to be a Pepper to?";
+
+ app.use(bodyParser.json());
+
+ app.use(express.urlencoded({extended:true}));
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -95,3 +100,5 @@ setTimeout(()=>{
  app.listen(port, function(){
      console.log(`Server is running on port: ${port}`);
  });
+
+ module.exports = app;
