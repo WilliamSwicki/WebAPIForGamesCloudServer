@@ -33,7 +33,8 @@ function isAuthenticated(req,res, next){
 }
 
 //MongoDB connection setup
-const mongoURI = process.env.MONGODB_URI.toString()/*"mongodb://localhost:27017/Item"*/;
+const mongoURI = "mongodb+srv://wmswicki03:Ninja0805*@cluster0.g93nl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"/*process.env.MONGODB_URI.toString() "mongodb://localhost:27017/Item"*/;
+console.log(mongoURI)
 mongoose.connect(mongoURI);
 
 const db = mongoose.connection;
