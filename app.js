@@ -33,7 +33,7 @@ function isAuthenticated(req,res, next){
 }
 
 //MongoDB connection setup
-const mongoURI = process.env.MONGODB_URI/*"mongodb://localhost:27017/Item"*/;
+const mongoURI = process.env.MONGODB_URI.toString()/*"mongodb://localhost:27017/Item"*/;
 mongoose.connect(mongoURI);
 
 const db = mongoose.connection;
